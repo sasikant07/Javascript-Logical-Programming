@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Pattern 7</title>
+        <!--
+                1
+               21
+              321
+             4321
+            54321
+        -->
+    </head>
+    <body>
+        <script type="text/javascript">
+            let num = prompt('Enter the number of line to print.');
+
+            for(let i = 1; i <= num; i++) {
+                for(let j = num; j >= i; j--) {
+                    document.write(' ');
+                }
+                for(let k = 1; k <= i; k++) {
+                    document.write(k);
+                }
+                document.write('<br />');
+            }
+        </script>
+    </body>
+</html>
