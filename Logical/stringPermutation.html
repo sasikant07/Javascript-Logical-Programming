@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Permutation</title>
+</head>
+
+<body>
+    <h1>Find all permutation of a String</h1>
+    <script>
+        permutation = (str, prefix) => {
+            if (str.length == 0) {
+                console.log(prefix);
+            }
+            else {
+                for (let i = 0; i < str.length; i++) {
+                    let rem = str.substring(0, i) + str.substring(i + 1);
+                    permutation(rem, prefix + str[i]);
+                }
+            }
+        }
+        let str = "ABC";
+        permutation(str, "");
+    </script>
+</body>
+
+</html>

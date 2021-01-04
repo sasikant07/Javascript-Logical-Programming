@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common Character</title>
+</head>
+
+<body>
+    <h1>Most commonly used Charachter in String</h1>
+    <script>
+        const countingChar = (str) => {
+            const charCount = {};
+            let maxCharCount = 0;
+            let maxChar = '';
+
+            for (let i = 0; i < str.length; i++) {
+                charCount[str[i]] = ++charCount[str[i]] || 1;
+            }
+
+            for (let key in charCount) {
+                if (charCount[key] >= maxCharCount) {
+                    maxCharCount = charCount[key];
+                    maxChar = key;
+                }
+            }
+
+            return maxChar;
+        }
+
+        const word = 'nimbble';
+
+        console.log('Most used character is ' + countingChar(word)); // Most used character is b
+
+        const str = 'google';
+
+        console.log('Most used character is ' + countingChar(str)) // Most used character is o
+
+    </script>
+</body>
+
+</html>

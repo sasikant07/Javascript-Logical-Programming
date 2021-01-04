@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non Reapeating charater in string</title>
+</head>
+
+<body>
+    <h1>Print the first non reapeating character in String.</h1>
+    <script>
+        const find_Non_Repeating_Character = (str) => {
+            let strng = str.split('');
+            let result = '';
+
+            for (let x = 0; x < strng.length; x++) {
+                let count = 0;
+                for (let y = 0; y < strng.length; y++) {
+                    if (strng[x] === strng[y]) {
+                        count++;
+                    }
+                }
+                if (count < 2) {
+                    result = strng[x];
+                    break;
+                }
+            }
+
+            return result;
+        };
+
+        console.log(find_Non_Repeating_Character('abcabcddeff'));
+    </script>
+</body>
+
+</html>

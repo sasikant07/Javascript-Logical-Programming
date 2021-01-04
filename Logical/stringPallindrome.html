@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Pallindrome</title>
+</head>
+
+<body>
+    <h1>Check if the given String is a Pallindrome or not</h1>
+    <script>
+        const pallindrome = (str) => {
+            str = str.replace(/\W/g, '');
+            str = str.toLowerCase();
+
+            for (let i = 0; i < str.length; i++) {
+                if (str[i] !== str[str.length - 1 - i]) {
+                    return `${str} is not a pallindrome.`;
+                }
+            }
+
+            return `${str} is a pallindrome.`;
+        }
+
+        // Using built in methods.
+        /*  const pallindrome = (str) => {
+             str = str.replace(/\W/g, '');
+             str = str.toLowerCase();
+ 
+             return str === str.split('').reverse().join('');
+         } */
+
+        const str = "racecar";
+        console.log(pallindrome(str));
+
+        const strng = "I did, did I?";
+        console.log(pallindrome(strng));
+
+    </script>
+</body>
+
+</html>

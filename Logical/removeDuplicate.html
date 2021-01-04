@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Duplicate from an array.</title>
+</head>
+
+<body>
+    <h1>Remove Duplicate elements from an array</h1>
+    <script>
+        let arr = [2, 6, 5, 7, 8, 4, 2, 5, 9, 3, 7, 2, 5, 5, 5];
+
+        // using two array on unsorted array O(n^2)
+        /* const removeDuplicate = arr => {
+            let result = [];
+
+            for (let i = 0; i < arr.length; i++) {
+                let exist = false;
+                for (let j = 0; j < result.length; j++) {
+                    if (arr[i] === result[j]) {
+                        exist = true;
+                        break;
+                    }
+                }
+                if (!exist) {
+                    result.push(arr[i]);
+                }
+            }
+
+            return result;
+        }
+
+        console.log(removeDuplicate(arr)); */
+
+
+        // Remove duplicate from a sorted Array O(n)
+        // i = slow runner
+        // j = fast runner
+
+        arr.sort((a, b) => a - b);
+
+        // https://leetcode.com/problems/remove-duplicates-from-sorted-array/solution/
+
+        const removeDuplicate = arr => {
+            if (arr.length === 0) return 0;
+
+            let i = 0;
+            for (let j = 1; j < arr.length; j++) {
+                if (arr[i] !== arr[j]) {
+                    i++;
+                    arr[i] = arr[j];
+
+                }
+                console.log(arr[i]);
+            }
+            return `length : ${i + 1}`;
+        }
+
+        console.log(removeDuplicate(arr));
+
+        // Using built in methods.
+
+
+        /*  arr.sort((a, b) => a - b);
+         //let uniqueArrays = [...new Set(arr)];
+
+         let uniqueArrays = arr.filter((a, b) => arr.indexOf(a) === b);
+
+         console.log(uniqueArrays); */
+
+        // Find duplicate elements in the array.
+        /* let uniqueArrays = arr.filter((c, index) => {
+            return arr.indexOf(c) !== index;
+        });
+
+        console.log(uniqueArrays); */
+    </script>
+</body>
+
+</html>

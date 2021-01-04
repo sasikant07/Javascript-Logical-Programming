@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Anagram</title>
+</head>
+
+<body>
+    <h1>Check whether the String is Anagram or not?</h1>
+    <p>
+        We use a simple JavaScript object to play the role of a hashmap. We do two iterations — one per string. When we
+        iterate over the first one, we add its characters as keys to the hashmap and count their appearances, which are
+        going to be stored as their values. Then we do another iteration over the second string. Check if its characters
+        are stored in our hashmap. If yes — decrement their value. If there are missing characters, which means the two
+        strings are not an anagrammatic pair, we simply return false. If both loops complete, we return true, signifying
+        that the strings being analyzed are an anagrammatic pair.
+    </p>
+    <script>
+        const isAnagram = (str1, str2) => {
+            str1 = str1.replace(/[^\w]/g, "").toLowerCase();
+            str2 = str2.replace(/[^\w]/g, "").toLowerCase();
+
+            const hist = {}
+
+            for (let i = 0; i < str1.length; i++) {
+                const char = str1[i]
+                if (hist[char]) {
+                    hist[char]++
+                } else {
+                    hist[char] = 1
+                }
+            }
+
+            for (let j = 0; j < str2.length; j++) {
+                const char = str2[j]
+                if (hist[char]) {
+                    hist[char]--
+                } else {
+                    return false
+                }
+            }
+
+            return true
+        }
+
+        // Using Built in Method
+
+        /* const isAnagrams = (str1, str2) => {
+            if (str1.length !== str2.length) { 
+                return false;
+            }
+            let sort1 = str1.split('').sort(); 
+            let sort2 = str2.split('').sort();
+            return sort1.join('') === sort2.join('');
+        } */
+
+        const str1 = 'Listen';
+        const str2 = 'Silent';
+
+        console.log(isAnagram(str1, str2));  // true
+
+        console.log(isAnagram('rail safety', 'fairy tales')); //true
+
+        console.log(isAnagram('dormitory', 'dirty room')); // true
+
+    </script>
+</body>
+
+</html>

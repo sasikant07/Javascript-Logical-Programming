@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second largest array</title>
+</head>
+
+<body>
+    <h1>Second largest number in an array</h1>
+    <script>
+        const secondLargestNumber = (arr) => {
+            let largest = 0;
+            let secondLargest = 0;
+            if (arr[0] > arr[1]) {
+                largest = arr[0];
+                secondLargest = arr[1];
+            } else {
+                largest = arr[1];
+                secondLargest = arr[0];
+            }
+
+            for (let i = 2; i < arr.length; i++) {
+                if (arr[i] > secondLargest) {
+                    if (arr[i] > largest) {
+                        secondLargest = largest;
+                        largest = arr[i];
+                    } else {
+                        secondLargest = arr[i];
+                    }
+                }
+            }
+            return secondLargest;
+        }
+
+        const numbers = [112, 24, 31, 203, 101, 44, 175, 33, 56];  // 175
+
+        console.log(secondLargestNumber(numbers));
+    </script>
+</body>
+
+</html>

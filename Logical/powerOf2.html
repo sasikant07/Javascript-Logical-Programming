@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power of two</title>
+</head>
+
+<body>
+    <h1>Check if the number is power of two</h1>
+    <script>
+        const isPowerOfTwo = num => {
+            if (num === 1) {
+                return true;
+            };
+            if (num % 2 !== 0) {
+                return false;
+            }
+            return isPowerOfTwo(num / 2);
+        }
+        console.log(isPowerOfTwo(3));
+        console.log(isPowerOfTwo(32));
+        console.log(isPowerOfTwo(2048));
+        console.log(isPowerOfTwo(256));
+        console.log(isPowerOfTwo(22));
+    </script>
+</body>
+
+</html>

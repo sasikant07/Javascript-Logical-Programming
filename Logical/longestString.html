@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Longest String</title>
+</head>
+
+<body>
+    <h1>Longest String in an array.</h1>
+    <script>
+        /* const longestString = (names) => {
+            let firstName = '';
+            for (let i = 0; i < names.length; i++) {
+                if (names[i].length > firstName.length) {
+                    firstName = names[i];
+                }
+            }
+            return firstName;
+        } */
+
+        const longestString = (names) => {
+            let firstName = '';
+
+            names.forEach((item) => {
+                if (item.length > firstName.length) {
+                    firstName = item;
+                }
+            });
+
+            return firstName;
+        }
+
+
+        const names = ['John', 'Michael', 'Steve', 'David', 'Labuchane'];
+        console.log('Longest String : ' + longestString(names));
+    </script>
+</body>
+
+</html>

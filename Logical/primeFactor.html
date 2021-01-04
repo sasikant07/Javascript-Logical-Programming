@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print prime factor of a number</title>
+</head>
+<body>
+    <h1>Print prime factor of a number.</h1>
+    <script>
+        const primeNumber = num => {
+            let primeFactors = [];
+
+            if (num % 2 === 0) {
+                primeFactors.push(2);
+                num = num / 2;
+            }
+
+            let root = Math.ceil(Math.sqrt(num));
+
+            for (let i = 3; i <= root; i++) {
+                while( num % i === 0) {
+                    primeFactors.push(i);
+                    num = num / i;
+                }
+            }
+
+            if (num > 2) {
+                primeFactors.push(num);
+            }
+            return primeFactors;
+        };
+
+        console.log(primeNumber(126));   // [2, 3, 3, 7]
+    </script>
+</body>
+</html>

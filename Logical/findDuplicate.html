@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Duplicate</title>
+</head>
+
+<body>
+    <h1>Find all the duplicate in an array</h1>
+    <script>
+        const numbers = [1, 2, 2, 3, 4, 5, 5, 6];
+
+        const findDuplicate = (arr) => {
+            let duplicate = [];
+            //let arr = num.sort((a, b) => a - b);
+
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] === arr[i + 1]) {
+                    duplicate.push(arr[i]);
+                }
+            }
+            return duplicate;
+        }
+
+        let result = numbers.filter((ele, index) => numbers.indexOf(ele) !== index);
+
+        console.log(findDuplicate(numbers));
+        console.log(result);
+
+        const str = 'apple';
+        console.log(findDuplicate(str));  // ['p']
+    </script>
+</body>
+
+</html>
